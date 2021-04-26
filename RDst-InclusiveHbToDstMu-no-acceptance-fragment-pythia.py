@@ -1,5 +1,4 @@
 import FWCore.ParameterSet.Config as cms
-from GeneratorInterface.EvtGenInterface.EvtGenSetting_cff import *
 from Configuration.Generator.Pythia8CommonSettings_cfi import *
 from Configuration.Generator.MCTunes2017.PythiaCP5Settings_cfi import *
 
@@ -62,7 +61,6 @@ End
         ),
     ),
 )
-generator.PythiaParameters.processParameters.extend(EvtGenExtraParticles)
 
 ###### Filters ##########
 DstFromBhadronFilter = cms.EDFilter(

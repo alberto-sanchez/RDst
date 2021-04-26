@@ -1,5 +1,4 @@
 import FWCore.ParameterSet.Config as cms
-
 from GeneratorInterface.EvtGenInterface.EvtGenSetting_cff import *
 from Configuration.Generator.Pythia8CommonSettings_cfi import *
 from Configuration.Generator.MCTunes2017.PythiaCP5Settings_cfi import *
@@ -81,6 +80,15 @@ ChargeConj myD(2S)+       myD(2S)-
 ChargeConj myD*(2S)0      myanti-D*(2S)0
 ChargeConj myD*(2S)+      myD*(2S)-
 ChargeConj myB_c-         myB_c+
+Alias      myB*+        B*+
+Alias      myB*-        B*-
+Alias      myB*0        B*0
+Alias      myanti-B*0   anti-B*0
+Alias      myB_s*0      B_s*0
+Alias      myanti-B_s*0 anti-B_s*0
+ChargeConj myB*+        myB*-
+ChargeConj myB*0        myanti-B*0
+ChargeConj myB_s*0      myanti-B_s*0
 
 Decay myanti-B0
 0.0493   myD*+    mu-       anti-nu_mu         PHOTOS  HQET2 1.207 0.920 1.406 0.853; #[Reconstructed PDG2011]
@@ -189,93 +197,69 @@ CDecay myanti-D0
 
 Decay myD_1+
 0.3333 myD*+ pi0                        VVS_PWAVE  0.0 0.0 0.0 0.0 1.0 0.0;
-0.6667 D*0 pi+                          VVS_PWAVE  0.0 0.0 0.0 0.0 1.0 0.0;
 Enddecay
 CDecay myD_1-
 
 Decay myD_10
-0.3333    D*0 pi0                          VVS_PWAVE  0.0 0.0 0.0 0.0 1.0 0.0;
 0.6667    myD*+ pi-                        VVS_PWAVE  0.0 0.0 0.0 0.0 1.0 0.0;
 Enddecay
 CDecay myanti-D_10
 
 Decay myD'_1+
 0.3333    myD*+ pi0                        VVS_PWAVE  1.0 0.0 0.0 0.0 0.0 0.0;
-0.6667    D*0 pi+                          VVS_PWAVE  1.0 0.0 0.0 0.0 0.0 0.0;
 Enddecay
 CDecay myD'_1-
 
 Decay myD'_10
 0.6667    myD*+ pi-                        VVS_PWAVE  1.0 0.0 0.0 0.0 0.0 0.0;
-0.3333    D*0 pi0                          VVS_PWAVE  1.0 0.0 0.0 0.0 0.0 0.0;
 Enddecay
 CDecay myanti-D'_10
 
 Decay myD_2*+
 0.1030    myD*+ pi0                        TVS_PWAVE  0.0 0.0 1.0 0.0 0.0 0.0;
-0.2090    D*0 pi+                          TVS_PWAVE  0.0 0.0 1.0 0.0 0.0 0.0;
-0.2290    D+  pi0                          TSS;
-0.4590    D0  pi+                          TSS;
 Enddecay
 CDecay myD_2*-
 
 Decay myD_2*0
 0.2090    myD*+ pi-                        TVS_PWAVE  0.0 0.0 1.0 0.0 0.0 0.0;
-0.1030    D*0 pi0                          TVS_PWAVE  0.0 0.0 1.0 0.0 0.0 0.0;
-0.2290    D0  pi0                          TSS;
-0.4590    D+  pi-                          TSS;
 Enddecay
 CDecay myanti-D_2*0
 
 Decay myD'_s1+
 0.5000   myD*+ K0                            VVS_PWAVE  0.0 0.0 0.0 0.0 1.0 0.0;
-0.5000   D*0 K+                              VVS_PWAVE  0.0 0.0 0.0 0.0 1.0 0.0;
-0.0000   gamma D_s*+                         PHSP;
-0.0000   gamma D_s+                          PHSP;
 Enddecay
 CDecay myD'_s1-
 
 Decay myD_s2*+
 0.0500    myD*+ K0                         TVS_PWAVE  0.0 0.0 1.0 0.0 0.0 0.0;
-0.0500    D*0 K+                           TVS_PWAVE  0.0 0.0 1.0 0.0 0.0 0.0;
-0.4300    D+  K0                           TSS;
-0.4700    D0  K+                           TSS;
 Enddecay
 CDecay myD_s2*-
 #
 Decay myD(2S)0
 0.6667    myD*+ pi-                        SVS;
-0.3333    D*0 pi0                          SVS;
 Enddecay
 CDecay myanti-D(2S)0
 
 Decay myD(2S)+
 0.3333    myD*+ pi0                        SVS;
-0.6667    D*0 pi+                          SVS;
 Enddecay
 CDecay myD(2S)-
 
 Decay myD*(2S)0
 0.3333    myD*+ pi-                        VVS_PWAVE 1.0 0.0 0.0 0.0 0.0 0.0;
-0.1667    D*0 pi0                          VVS_PWAVE 1.0 0.0 0.0 0.0 0.0 0.0;
-0.1667    D0  pi0                          VSS;
-0.3333    D+  pi-                          VSS;
 Enddecay
 CDecay myanti-D*(2S)0
 
 Decay myD*(2S)+
 0.1667    myD*+ pi0                        VVS_PWAVE 1.0 0.0 0.0 0.0 0.0 0.0;
-0.3333    D*0 pi+                          VVS_PWAVE 1.0 0.0 0.0 0.0 0.0 0.0;
-0.1667    D+  pi0                          VSS;
-0.3333    D0  pi+                          VSS;
 Enddecay
 CDecay myD*(2S)-
 
 Decay myB_c-
 0.04030    myanti-B_s0  mu-     anti-nu_mu    PHOTOS  PHSP;
-0.05060    anti-B_s*0   mu-     anti-nu_mu    PHOTOS  PHSP;
+0.05060    myanti-B_s*0 mu-     anti-nu_mu    PHOTOS  PHSP;
 0.00340    myanti-B0    mu-     anti-nu_mu    PHOTOS  PHSP;
-0.00580    anti-B*0     mu-     anti-nu_mu    PHOTOS  PHSP;
+0.00580    myanti-B*0   mu-     anti-nu_mu    PHOTOS  PHSP;
 0.000049   myD*-        D0                    SVS;
 0.00033    myD*-        D*0                   SVV_HELAMP 1.0 0.0 1.0 0.0 1.0 0.0;
 0.0000004  myD*-        anti-D0               SVS;
@@ -285,28 +269,43 @@ Decay myB_c-
 0.07200    rho-         myanti-B_s0           SVS;
 0.01060    myanti-B_s0  K-                    PHSP;
 0.00000    K*-          myanti-B_s0           SVS;
-0.06500    anti-B_s*0   pi-                   SVS;
-0.20200    anti-B_s*0   rho-                  SVV_HELAMP 1.0 0.0 1.0 0.0 1.0 0.0;
-0.00370    anti-B_s*0   K-                    SVS;
-0.00000    anti-B_s*0   K*-                   SVV_HELAMP 1.0 0.0 1.0 0.0 1.0 0.0;
+0.06500    myanti-B_s*0 pi-                   SVS;
+0.20200    myanti-B_s*0 rho-                  SVV_HELAMP 1.0 0.0 1.0 0.0 1.0 0.0;
+0.00370    myanti-B_s*0 K-                    SVS;
+0.00000    myanti-B_s*0 K*-                   SVV_HELAMP 1.0 0.0 1.0 0.0 1.0 0.0;
 0.01060    myanti-B0    pi-                   PHSP;
 0.00960    rho-         myanti-B0             SVS;
 0.00070    myanti-B0    K-                    PHSP;
 0.00015    K*-          myanti-B0             SVS;
-0.00950    anti-B*0     pi-                   SVS;
-0.02570    anti-B*0     rho-                  SVV_HELAMP 1.0 0.0 1.0 0.0 1.0 0.0;
-0.00055    anti-B*0     K-                    SVS;
-0.00058    anti-B*0     K*-                   SVV_HELAMP 1.0 0.0 1.0 0.0 1.0 0.0;
+0.00950    myanti-B*0   pi-                   SVS;
+0.02570    myanti-B*0   rho-                  SVV_HELAMP 1.0 0.0 1.0 0.0 1.0 0.0;
+0.00055    myanti-B*0   K-                    SVS;
+0.00058    myanti-B*0   K*-                   SVV_HELAMP 1.0 0.0 1.0 0.0 1.0 0.0;
 0.00037    myB-         pi0                   PHSP;
 0.00034    rho0         myB-                  SVS;
 0.01980    myB-         K0                    PHSP;
 0.00430    K*0          myB-                  SVS;
-0.00033    B*-          pi0                   SVS;
-0.00090    B*-          rho0                  SVV_HELAMP 1.0 0.0 1.0 0.0 1.0 0.0;
-0.01600    B*-          K0                    SVS;
-0.01670    B*-          K*0                   SVV_HELAMP 1.0 0.0 1.0 0.0 1.0 0.0;
+0.00033    myB*-        pi0                   SVS;
+0.00090    myB*-        rho0                  SVV_HELAMP 1.0 0.0 1.0 0.0 1.0 0.0;
+0.01600    myB*-        K0                    SVS;
+0.01670    myB*-        K*0                   SVV_HELAMP 1.0 0.0 1.0 0.0 1.0 0.0;
 Enddecay
 CDecay myB_c+
+
+Decay myB*+
+1.0000    myB+  gamma                       VSP_PWAVE;
+Enddecay
+CDecay myB*-
+
+Decay myB*0
+1.0000    myB0  gamma                       VSP_PWAVE;
+Enddecay
+CDecay myanti-B*0
+
+Decay myB_s*0
+1.0000    myB_s0  gamma                     VSP_PWAVE;
+Enddecay
+CDecay myanti-B_s*0
 
 End
 """
